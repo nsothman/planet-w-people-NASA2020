@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+	<style>
+		#map {position: absolute; top: 0; bottom: 0; left: 0; right: 0;}
+	</style>
+</head>
+<body>
+	<div id = "map"></div>
+	<script src="./Leaflet.heat/dist/leaflet-heat.js"></script>
+	<script>
+		var map = L.map('map').setView([25, 67], 10)
+		L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=f41UaWsFoH5dOEU2Qhrt', {
+			attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
+		}).addTo(map);
+		var heat = L.heatLayer([
+    [24.93, 66.97, 3],
+    [24.93, 66.9703, 3],
+    [24.93, 66.9706, 3],
+    [24.93, 66.9709, 3],
+    [24.93, 66.9712, 3],
+    [24.93, 66.9715, 3],
+    [24.93, 66.9718, 3],
+    [24.93, 66.9721, 3],
+    [24.93, 66.9724, 3]
+    /*[24.9297, 66.9697, 2],
+    [24.9297, 66.9698, 2],
+    [24.9298, 66.9698, 2],
+    [24.9298, 66.9699, 2],
+    [24.9299, 66.9699, 2],
+    [24.9299, 66.97, 2],
+    [24.93, 66.97, 2],
+    [24.9301, 66.97, 2],
+    [24.9301, 66.9701, 2],
+    [24.9302, 66.9701, 2],
+    [24.9302, 66.9702, 2],
+    [24.9303, 66.9702, 2],
+    [24.9303, 66.9703, 2],
+    [24.9304, 66.9703, 2],
+    [24.96, 66.96, 50],
+    [24.94, 66.98, 25],
+    [24.92, 67.01, 100],
+    [24.90, 66.98, 120],
+    [24.89, 66.99, 150],
+    [24.99, 67.00, 30],
+    [24.97, 67.02, 45]*/
+  ], {radius: 30}).addTo(map);
+	</script>
+</body>
+</html>
