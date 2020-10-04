@@ -29,20 +29,20 @@ lat = 25.058029
 for i in range(len(csvArr[0])):
     long = 66.892306
     for j in range(len(csvArr[0][i])):
-        risk.append([lat, long, (csvArr[0][i][j] / 51000) + (csvArr[1][i][j] / 51000)])
+        risk.append([lat, long, (csvArr[0][i][j] / 44625) + (csvArr[1][i][j] / 44625)])
         long += longDiff
     lat += latDiff
 
 riskCount = 0
 for i in range(len(csvArr[2])):
     for j in range(len(csvArr[2][i])):
-        risk[riskCount][2] += (csvArr[2][i][j] / 25500)
+        risk[riskCount][2] += (csvArr[2][i][j] / 22313)
         riskCount += 1
 
 riskCount = 0
 for i in range(len(csvArr[3])):
     for j in range(len(csvArr[3][i])):
-        risk[riskCount][2] += (csvArr[3][i][j] / 14571)
+        risk[riskCount][2] += (csvArr[3][i][j] / 12750)
         riskCount += 1
 
 with open("../Datasets/risk.csv", "w") as risk_file:
