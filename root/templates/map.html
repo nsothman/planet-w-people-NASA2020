@@ -8,17 +8,24 @@
 	</style>
 </head>
 <body>
-	<div id = "map"></div>
-	 <script type="text/javascript"
-         src="{{ url_for('static', filename='leaflet-heat.js') }}"></script>
-	<script>
-		var map = L.map('map').setView([25, 67], 10)
-		L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=f41UaWsFoH5dOEU2Qhrt', {
-			attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a>
-									  <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
-		}).addTo(map);
-		var heat = L.heatLayer({{ results }}, {radius: 30}).addTo(map);
-		
+	<div id = "map" style="width: 1280px; height: 800px;"></div>
+	 	<script type="text/javascript"
+         	src="{{ url_for('static', filename='leaflet-heat.js') }}"></script>
+
+		<script>
+			var map = L.map('map').setView([25, 67], 10)
+			L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=f41UaWsFoH5dOEU2Qhrt', {
+				attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
+			}).addTo(map);
+			var heat = L.heatLayer({{ results }}, {radius: 30}).addTo(map);
+
+
+			var littleton = L.marker([25.058029, 66.892306]).bindPopup('This is Littleton, CO.');
+			var cities = L.layerGroup([littleton]);
+			var overlayMaps = {
+    			"Cities": cities
+			};
+			L.control.layers(null, overlayMaps).addTo(map);
 	</script>
 </body>
 </html>
