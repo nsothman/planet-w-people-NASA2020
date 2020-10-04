@@ -9,11 +9,11 @@ datasets = ["42R_gmis_impervious_surface_percentage_utm_30m",
 csvFiles = []
 
 for i in range(4):
-    img = Image.open("../Datasets/"+ datasets[i] + ".tif")
+    img = Image.open("./Datasets/"+ datasets[i] + ".tif")
     img_arr = np.array(img)
-    np.savetxt("../Datasets/"+ datasets[i] + ".csv", img_arr, delimiter=",")
+    np.savetxt("./Datasets/"+ datasets[i] + ".csv", img_arr, delimiter=",")
 
-    csvFile = open("../Datasets/"+ datasets[i] + ".csv")
+    csvFile = open("./Datasets/"+ datasets[i] + ".csv")
     csvFiles.append(csvFile)
 
 
@@ -45,7 +45,7 @@ for i in range(len(csvArr[3])):
         risk[riskCount][2] += (csvArr[3][i][j] / 12750)
         riskCount += 1
 
-with open("../Datasets/risk.csv", "w") as risk_file:
+with open("./Datasets/risk.csv", "w") as risk_file:
     writer = csv.writer(risk_file)
     for row in risk:
         writer.writerow(row)
