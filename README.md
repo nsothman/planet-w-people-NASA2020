@@ -1,4 +1,5 @@
-# planet-w-people-NASA2020
+# Planet, With People challenge, NASA Space Apps 2020
+(https://2020.spaceappschallenge.org/challenges/sustain/planet-people/teams/we-showed-up/project)
 
 BEFORE STARTING API RUN:
 - python3 Data\ processing/DataProcess.py
